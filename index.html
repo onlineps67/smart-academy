@@ -1,39 +1,43 @@
-<!doctype html>
-<html lang="en">
-<head>
+<!doctype html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#2563eb"><link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#4f46e5"><link rel="manifest" href="manifest.json">
 <title>Smart Academy</title>
 <style>
-*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#f5f7fb;color:#172033}
-header{background:linear-gradient(135deg,#2563eb,#7c3aed);color:white;padding:24px 18px 28px;border-radius:0 0 24px 24px}
-header h1{margin:0 0 6px;font-size:28px}header p{margin:0;opacity:.9}
-.container{max-width:900px;margin:auto;padding:16px}.search{width:100%;padding:14px;border:0;border-radius:14px;margin-top:16px;font-size:16px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin-top:18px}
-.card{background:white;border-radius:18px;padding:18px;box-shadow:0 3px 12px #00000010;cursor:pointer}.card h3{margin:8px 0}.icon{font-size:30px}
-.section{margin-top:26px}.section h2{font-size:20px}
-button{border:0;border-radius:12px;padding:12px 16px;background:#2563eb;color:white;font-weight:bold}
-footer{text-align:center;padding:30px;color:#667085}
-.hidden{display:none}
-#content{background:white;padding:20px;border-radius:18px;margin-top:18px}
-</style></head>
-<body>
-<header><div class="container"><h1>📚 Smart Academy</h1><p>Your free personal educational learning app</p><input id="search" class="search" placeholder="Search subjects, notes, classes..."></div></header>
-<main class="container">
-<section class="section"><h2>Learning</h2><div class="grid" id="cards">
-<div class="card" data-key="mathematics" onclick="openTopic('Mathematics','➗')"><div class="icon">➗</div><h3>Mathematics</h3><p>Notes & solutions</p></div>
-<div class="card" data-key="science" onclick="openTopic('Science','🔬')"><div class="icon">🔬</div><h3>Science</h3><p>Concepts & activities</p></div>
-<div class="card" data-key="english" onclick="openTopic('English','📖')"><div class="icon">📖</div><h3>English</h3><p>Grammar & practice</p></div>
-<div class="card" data-key="nepali" onclick="openTopic('Nepali','🇳🇵')"><div class="icon">🇳🇵</div><h3>Nepali</h3><p>Notes & exercises</p></div>
-<div class="card" data-key="social" onclick="openTopic('Social Studies','🌍')"><div class="icon">🌍</div><h3>Social Studies</h3><p>Lessons & questions</p></div>
-<div class="card" data-key="library" onclick="openTopic('PDF Library','📄')"><div class="icon">📄</div><h3>PDF Library</h3><p>Study materials</p></div>
-</div></section>
-<section class="section"><h2>🤖 Smart Academy AI</h2><div id="content"><p>Ask your AI teacher for explanations, lesson plans, quizzes, solutions, and teaching resources.</p><button onclick="alert('Connect your Smart Academy AI Agent here when your agent is ready.')">Open AI Teacher</button></div></section>
-<footer>© 2026 Smart Academy · Free educational app</footer>
-</main>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#f3f6fb;color:#10213a}
+header{background:linear-gradient(120deg,#4f46e5,#7c2eea);color:#fff;padding:16px 20px 44px}
+.wrap{max-width:1100px;margin:auto}h1{margin:0;font-size:30px}.sub{margin-top:6px}.search{width:100%;margin-top:18px;padding:14px 16px;border:0;border-radius:16px;font-size:16px}
+main{max-width:1100px;margin:auto;padding:28px 20px 50px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:16px}
+.card,.panel{background:#fff;border-radius:18px;box-shadow:0 5px 18px #00000010}.card{padding:20px;min-height:150px;cursor:pointer}
+.card:hover{transform:translateY(-2px)}.icon{font-size:30px}.card h3{margin:12px 0 8px}.panel{padding:22px;margin-top:25px}
+.classgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(100px,1fr));gap:12px;margin-top:15px}
+button{padding:12px 16px;border:0;border-radius:10px;background:#eef2ff;cursor:pointer;font-weight:bold}.back{background:#4358e8;color:white}
+.note{background:#eef2ff;padding:15px;border-radius:12px;margin-top:18px;line-height:1.5}footer{text-align:center;color:#667085;padding:20px}
+</style></head><body>
+<header><div class="wrap"><h1>📚 Smart Academy</h1><div class="sub">Your free personal educational learning app</div>
+<input id="search" class="search" placeholder="Search subjects, classes, notes..."></div></header>
+<main>
+<section id="home"><h2>Learning</h2><div class="grid" id="subjects">
+<div class="card" data-name="mathematics" onclick="openSubject('Mathematics','➗')"><div class="icon">➗</div><h3>Mathematics</h3><p>Notes & solutions</p></div>
+<div class="card" data-name="science" onclick="openSubject('Science','🔬')"><div class="icon">🔬</div><h3>Science</h3><p>Concepts & activities</p></div>
+<div class="card" data-name="english" onclick="openSubject('English','📖')"><div class="icon">📖</div><h3>English</h3><p>Grammar & practice</p></div>
+<div class="card" data-name="nepali" onclick="openSubject('Nepali','NP')"><div class="icon">NP</div><h3>Nepali</h3><p>Notes & exercises</p></div>
+<div class="card" data-name="social studies" onclick="openSubject('Social Studies','🌍')"><div class="icon">🌍</div><h3>Social Studies</h3><p>Lessons & questions</p></div>
+<div class="card" data-name="pdf library" onclick="openLibrary()"><div class="icon">📄</div><h3>PDF Library</h3><p>Study materials</p></div>
+</div>
+<div class="panel"><h2>🤖 Smart Academy AI</h2><p>AI Teacher connection will be added after your Smart Academy AI Agent link is ready.</p></div>
+</section>
+<section id="subjectPanel" class="panel" style="display:none"><button class="back" onclick="home()">← Back</button><h2 id="title"></h2>
+<p>Select a class.</p><div class="classgrid" id="classes"></div><div id="materials"></div></section>
+<section id="libraryPanel" class="panel" style="display:none"><button class="back" onclick="home()">← Back</button><h2>📄 PDF Library</h2>
+<p>Choose a class to see its prepared library folders.</p><div class="classgrid" id="libclasses"></div><div id="lib"></div></section>
+</main><footer>Smart Academy • Free Educational Learning App</footer>
 <script>
-const search=document.getElementById('search');
-search.addEventListener('input',()=>{const q=search.value.toLowerCase();document.querySelectorAll('.card').forEach(c=>c.style.display=c.innerText.toLowerCase().includes(q)?'block':'none')});
-function openTopic(name,icon){document.getElementById('content').innerHTML=`<h2>${icon} ${name}</h2><p>This section is ready for your notes, PDFs, model questions, solutions and learning materials.</p><button onclick="location.reload()">← Back</button>`;window.scrollTo({top:document.body.scrollHeight,behavior:'smooth'})}
-if('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js');
+const cs=[6,7,8,9,10];let subject='';
+function openSubject(s,i){subject=s;home(false);document.getElementById('subjectPanel').style.display='block';document.getElementById('title').textContent=i+' '+s;document.getElementById('classes').innerHTML=cs.map(c=>'<button onclick="showM('+c+')">Class '+c+'</button>').join('');document.getElementById('materials').innerHTML=''}
+function showM(c){let folder='library/Class_'+c+'/'+subject.replaceAll(' ','_')+'/';document.getElementById('materials').innerHTML='<div class="note"><b>Class '+c+' — '+subject+'</b><br>Put PDFs in:<br><code>'+folder+'</code><br><br>Notes, model questions, solutions and teacher materials can be added here.</div>'}
+function openLibrary(){home(false);document.getElementById('libraryPanel').style.display='block';document.getElementById('libclasses').innerHTML=cs.map(c=>'<button onclick="showL('+c+')">Class '+c+'</button>').join('')}
+function showL(c){document.getElementById('lib').innerHTML='<div class="note"><b>Class '+c+' PDF Library</b><br>Materials can be added to the prepared class folders.</div>'}
+function home(show=true){document.getElementById('home').style.display=show?'block':'none';document.getElementById('subjectPanel').style.display='none';document.getElementById('libraryPanel').style.display='none';if(show)scrollTo(0,0)}
+document.getElementById('search').oninput=e=>{let q=e.target.value.toLowerCase();document.querySelectorAll('.card').forEach(x=>x.style.display=x.dataset.name.includes(q)?'block':'none')}
+if('serviceWorker'in navigator)navigator.serviceWorker.register('sw.js');
 </script></body></html>

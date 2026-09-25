@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#2563eb"><link rel="manifest" href="manifest.json">
+<title>Smart Academy</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#f5f7fb;color:#172033}
+header{background:linear-gradient(135deg,#2563eb,#7c3aed);color:white;padding:24px 18px 28px;border-radius:0 0 24px 24px}
+header h1{margin:0 0 6px;font-size:28px}header p{margin:0;opacity:.9}
+.container{max-width:900px;margin:auto;padding:16px}.search{width:100%;padding:14px;border:0;border-radius:14px;margin-top:16px;font-size:16px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin-top:18px}
+.card{background:white;border-radius:18px;padding:18px;box-shadow:0 3px 12px #00000010;cursor:pointer}.card h3{margin:8px 0}.icon{font-size:30px}
+.section{margin-top:26px}.section h2{font-size:20px}
+button{border:0;border-radius:12px;padding:12px 16px;background:#2563eb;color:white;font-weight:bold}
+footer{text-align:center;padding:30px;color:#667085}
+.hidden{display:none}
+#content{background:white;padding:20px;border-radius:18px;margin-top:18px}
+</style></head>
+<body>
+<header><div class="container"><h1>📚 Smart Academy</h1><p>Your free personal educational learning app</p><input id="search" class="search" placeholder="Search subjects, notes, classes..."></div></header>
+<main class="container">
+<section class="section"><h2>Learning</h2><div class="grid" id="cards">
+<div class="card" data-key="mathematics" onclick="openTopic('Mathematics','➗')"><div class="icon">➗</div><h3>Mathematics</h3><p>Notes & solutions</p></div>
+<div class="card" data-key="science" onclick="openTopic('Science','🔬')"><div class="icon">🔬</div><h3>Science</h3><p>Concepts & activities</p></div>
+<div class="card" data-key="english" onclick="openTopic('English','📖')"><div class="icon">📖</div><h3>English</h3><p>Grammar & practice</p></div>
+<div class="card" data-key="nepali" onclick="openTopic('Nepali','🇳🇵')"><div class="icon">🇳🇵</div><h3>Nepali</h3><p>Notes & exercises</p></div>
+<div class="card" data-key="social" onclick="openTopic('Social Studies','🌍')"><div class="icon">🌍</div><h3>Social Studies</h3><p>Lessons & questions</p></div>
+<div class="card" data-key="library" onclick="openTopic('PDF Library','📄')"><div class="icon">📄</div><h3>PDF Library</h3><p>Study materials</p></div>
+</div></section>
+<section class="section"><h2>🤖 Smart Academy AI</h2><div id="content"><p>Ask your AI teacher for explanations, lesson plans, quizzes, solutions, and teaching resources.</p><button onclick="alert('Connect your Smart Academy AI Agent here when your agent is ready.')">Open AI Teacher</button></div></section>
+<footer>© 2026 Smart Academy · Free educational app</footer>
+</main>
+<script>
+const search=document.getElementById('search');
+search.addEventListener('input',()=>{const q=search.value.toLowerCase();document.querySelectorAll('.card').forEach(c=>c.style.display=c.innerText.toLowerCase().includes(q)?'block':'none')});
+function openTopic(name,icon){document.getElementById('content').innerHTML=`<h2>${icon} ${name}</h2><p>This section is ready for your notes, PDFs, model questions, solutions and learning materials.</p><button onclick="location.reload()">← Back</button>`;window.scrollTo({top:document.body.scrollHeight,behavior:'smooth'})}
+if('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js');
+</script></body></html>
